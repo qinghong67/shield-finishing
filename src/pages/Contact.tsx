@@ -18,22 +18,22 @@ export default function Contact() {
             <input
               type="text"
               placeholder="Full Name"
-              className="w-full border p-3 rounded"
+              className="w-full border border-slate-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
 
             <input
               type="email"
               placeholder="Email Address"
-              className="w-full border p-3 rounded"
+              className="w-full border border-slate-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
 
             <input
               type="tel"
               placeholder="Phone Number"
-              className="w-full border p-3 rounded"
+              className="w-full border border-slate-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
 
-            <select className="w-full border p-3 rounded">
+            <select className="w-full border border-slate-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500">
               <option>Painting Services</option>
               <option>Plastering Services</option>
               <option>Residential Project</option>
@@ -42,8 +42,8 @@ export default function Contact() {
 
             <textarea
               placeholder="Tell us about your project"
-              rows={5}
-              className="w-full border p-3 rounded"
+              rows={3}
+              className="w-full border border-slate-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
 
             <button
