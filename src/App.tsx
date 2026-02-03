@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Services from './pages/Services';
+import About from './pages/About';
 import Gallery from './pages/Gallery';
 import GalleryAdmin from './pages/admin/GalleryAdmin';
 
@@ -12,6 +13,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/admin/gallery" element={<GalleryAdmin />} />
       </Routes>
