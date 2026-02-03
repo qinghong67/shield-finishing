@@ -8,26 +8,45 @@ import {
   ShieldCheck,
   Paintbrush,
   Sparkles,
-  Hammer,
+  Building2,
+  Home,
+  Wrench,
+  HardHat,
   CheckCircle2,
   ChevronDown,
+  SprayCan,
 } from "lucide-react";
 
 function useBusinessCopy() {
-  // Change these later to match your real business details
   return useMemo(
     () => ({
-      brand: "Shield Finishing",
-      tagline: "Premium Painting & Finishing in Brisbane",
+      brand: "SFS Painting",
+      tagline: "Painting • Plastering • Repairs • Restorations",
       area: "Brisbane & surrounding suburbs",
-      phone: "0400 000 000",
-      email: "hello@yourdomain.com",
-      bullets: [
-        "Interior & exterior painting",
-        "Plaster repairs & patching",
-        "Feature walls & texture finishes",
-        "Reliable scheduling + clean workmanship",
+      phone: "0461 522 444",
+      email: "Admin@sfspainting.com.au",
+      heroPoints: [
+        "Fast, clean, professional finish",
+        "Prep-first approach (repairs, patching, sanding)",
+        "Great for rentals, open homes, and commercial sites",
+        "Clear quote + tidy handover",
       ],
+      services: {
+        commercial: [
+          "Commercial painting",
+          "Plastering & patching",
+          "Gyprock sheeting",
+          "End-of-lease refresh",
+        ],
+        residential: [
+          "Open home / bond repaint",
+          "Maintenance repaint",
+          "Damage repair",
+          "Weatherboard repairs",
+        ],
+        roofing: ["Roof restoration", "Colorbond roofing", "Tiled roofing"],
+        fence: ["Fence respray"],
+      },
     }),
     []
   );
@@ -70,7 +89,7 @@ function TopBar() {
   );
 }
 
-function Home() {
+function HomePage() {
   const c = useBusinessCopy();
   return (
     <>
@@ -82,18 +101,18 @@ function Home() {
             <div>
               <div className="kicker">
                 <Sparkles size={16} />
-                Free quotes • Licensed-ready workmanship • {c.area}
+                Free quotes • Reliable scheduling • {c.area}
               </div>
 
               <h1 className="h1">
-                Make your home look <span style={{ color: "var(--brand)" }}>new</span> again —
+                Clean prep. Sharp lines.
                 <br />
-                with a finish that lasts.
+                <span style={{ color: "var(--brand)" }}>A finish that lasts.</span>
               </h1>
 
               <p className="lead">
-                We deliver clean lines, durable coatings, and tidy job sites — from preparation to final
-                walkthrough. Perfect for homeowners, rentals, and small commercial spaces.
+                From rental refreshes to commercial repainting, plaster repairs, and roof restoration — we
+                deliver a professional result with clear communication and a tidy job site.
               </p>
 
               <div className="ctas" style={{ marginTop: 8 }}>
@@ -106,11 +125,11 @@ function Home() {
               </div>
 
               <div className="grid3" style={{ marginTop: 18 }}>
-                {c.bullets.map((t) => (
+                {c.heroPoints.map((t) => (
                   <div key={t} className="mini">
                     <CheckCircle2 size={18} />
                     <b>{t}</b>
-                    <p>Professional prep, premium materials, and a smooth handover.</p>
+                    <p>Quality materials, good prep, and a smooth handover.</p>
                   </div>
                 ))}
               </div>
@@ -127,8 +146,17 @@ function Home() {
               <QuoteForm />
 
               <div style={{ marginTop: 14 }} className="mini">
-                <b>Typical response time</b>
-                <p>Same day (business hours). Emergency touch-ups available.</p>
+                <b>Contact</b>
+                <p style={{ marginTop: 8 }}>
+                  <span className="pill">
+                    <Phone size={16} /> {c.phone}
+                  </span>
+                </p>
+                <p style={{ marginTop: 8 }}>
+                  <span className="pill">
+                    <Mail size={16} /> {c.email}
+                  </span>
+                </p>
               </div>
             </div>
           </div>
@@ -142,27 +170,54 @@ function Home() {
               <div>
                 <h2 className="h2">Services</h2>
                 <p className="sub">
-                  Everything you need for a high-quality finish — including prep, repairs, and protective
-                  coatings.
+                  Commercial, residential, roofing restoration, and fence respray — done with strong prep and
+                  a durable finish.
                 </p>
               </div>
+              <span className="pill">
+                <MapPin size={16} /> {c.area}
+              </span>
             </div>
 
             <div className="cards">
               <ServiceCard
+                icon={<Building2 size={20} />}
+                title="Commercial"
+                bullets={c.services.commercial}
+                desc="Professional painting and finishing for offices, shops, units, and site work."
+              />
+              <ServiceCard
+                icon={<Home size={20} />}
+                title="Residential"
+                bullets={c.services.residential}
+                desc="Bond repaints, open-home refresh, maintenance repaint, and repairs."
+              />
+              <ServiceCard
+                icon={<HardHat size={20} />}
+                title="Roofing Restoration"
+                bullets={c.services.roofing}
+                desc="Restoration coatings and repainting for Colorbond and tiled roofs."
+              />
+            </div>
+
+            <div className="cards" style={{ marginTop: 14 }}>
+              <ServiceCard
+                icon={<SprayCan size={20} />}
+                title="Fence Respray"
+                bullets={c.services.fence}
+                desc="Spray refresh for a clean, consistent look and better street appeal."
+              />
+              <ServiceCard
+                icon={<Wrench size={20} />}
+                title="Prep & Repairs"
+                bullets={["Patching", "Sanding", "Priming", "Surface protection"]}
+                desc="The finish is only as good as the prep — we do it properly."
+              />
+              <ServiceCard
                 icon={<Paintbrush size={20} />}
-                title="Interior Painting"
-                desc="Walls, ceilings, trims, doors — crisp edges and durable finishes."
-              />
-              <ServiceCard
-                icon={<Hammer size={20} />}
-                title="Repairs & Patching"
-                desc="Cracks, dents, water marks, nail holes — smooth, ready-to-paint surfaces."
-              />
-              <ServiceCard
-                icon={<ShieldCheck size={20} />}
-                title="Exterior Protection"
-                desc="Weather-resistant coatings, proper prep, and long-lasting results."
+                title="End of Lease Refresh"
+                bullets={["Walls & trims", "Touch-ups", "Quick turnaround", "Tidy handover"]}
+                desc="Perfect for tenants, owners, and property managers."
               />
             </div>
           </div>
@@ -173,16 +228,14 @@ function Home() {
             <div className="sectionHead">
               <div>
                 <h2 className="h2">Our Process</h2>
-                <p className="sub">
-                  No surprises. You get a simple plan, clear communication, and a tidy job site.
-                </p>
+                <p className="sub">No surprises. Clear scope, clean work, and a simple handover.</p>
               </div>
             </div>
 
             <div className="split">
-              <Step n="1" title="Inspect & Quote" text="We check surfaces, measure, and confirm materials." />
-              <Step n="2" title="Prep Properly" text="Protect floors, patch, sand, prime — the finish starts here." />
-              <Step n="3" title="Paint & Finish" text="Even coats, clean edges, and consistent sheen." />
+              <Step n="1" title="Inspect & Quote" text="We confirm scope, surfaces, access, and timing." />
+              <Step n="2" title="Protect & Prep" text="Cover floors, patch, sand, prime — prep-first." />
+              <Step n="3" title="Paint / Spray" text="Even coats, crisp edges, consistent sheen." />
               <Step n="4" title="Walkthrough" text="Final check, touch-ups, and cleanup before handover." />
             </div>
           </div>
@@ -194,39 +247,15 @@ function Home() {
               <div>
                 <h2 className="h2">Recent Work</h2>
                 <p className="sub">
-                  Add your own photos later. For now these are placeholders to show layout.
+                  Replace these placeholders with your real photos later (add to <b>public/work/</b>).
                 </p>
               </div>
-              <span className="pill">
-                <MapPin size={16} /> {c.area}
-              </span>
             </div>
 
             <div className="cards">
-              <WorkCard title="Modern Living Room Refresh" detail="Neutral walls + bright trims" />
-              <WorkCard title="Rental Repaint" detail="Fast turnaround, durable finish" />
-              <WorkCard title="Exterior Touch-up" detail="Prep + protective coating" />
-            </div>
-          </div>
-        </section>
-
-        <section className="section">
-          <div className="container">
-            <div className="split">
-              <div className="quote">
-                <p>
-                  “Arrived on time, explained the process clearly, and the finish looks perfect. Cleaned up
-                  everything.”
-                </p>
-                <b>— Local homeowner</b>
-              </div>
-              <div className="quote">
-                <p>
-                  “Great communication and fast job. The patching work was seamless — can’t see where the
-                  damage was.”
-                </p>
-                <b>— Property manager</b>
-              </div>
+              <WorkCard title="Bond Repaint Refresh" detail="Quick turnaround, clean finish" />
+              <WorkCard title="Commercial Repaint" detail="Prep + durable coating system" />
+              <WorkCard title="Roof Restoration" detail="Colorbond / tiled coating refresh" />
             </div>
           </div>
         </section>
@@ -236,27 +265,27 @@ function Home() {
             <div className="sectionHead">
               <div>
                 <h2 className="h2">FAQ</h2>
-                <p className="sub">Common questions clients ask before booking.</p>
+                <p className="sub">Common questions before booking.</p>
               </div>
             </div>
 
             <FAQ
               items={[
                 {
-                  q: "How do you price jobs?",
-                  a: "We price based on surface area, prep condition, access, materials, and finish level. You’ll get a clear written quote.",
+                  q: "How do you quote?",
+                  a: "We quote based on area, surface condition, prep needs, access, materials, and finish level. You’ll get a clear written scope.",
                 },
                 {
-                  q: "Do I need to move furniture?",
-                  a: "We can help move light items. For large furniture, we’ll advise what to move to speed up the job and protect surfaces.",
+                  q: "Do you do end-of-lease / bond repaints?",
+                  a: "Yes — we do full repaints and touch-up refreshes for rentals and property managers with fast turnaround.",
                 },
                 {
-                  q: "What paint do you use?",
-                  a: "We use reputable brands suitable for the job. If you have a preferred brand, we can quote with that too.",
+                  q: "Can you repair damage first?",
+                  a: "Yes — patching, plaster repairs, and weatherboard repairs are part of our prep-first approach.",
                 },
                 {
-                  q: "How long will it take?",
-                  a: "After inspection we provide a timeline. Most single rooms are 1–2 days depending on prep and drying time.",
+                  q: "Roof restoration: Colorbond and tiled?",
+                  a: "Yes — we can restore and repaint both Colorbond and tiled roofs, depending on condition and coating system.",
                 },
               ]}
             />
@@ -266,16 +295,19 @@ function Home() {
         <section className="section">
           <div className="container">
             <div className="heroCard">
-              <h3 className="cardTitle">Ready to get started?</h3>
+              <h3 className="cardTitle">Request a quote</h3>
               <p className="cardMuted">
-                Send a quick request and we’ll reply with next steps, timing, and a quote.
+                Tell us the job type, suburb, and preferred timing — we’ll get back to you fast.
               </p>
               <div className="ctas">
                 <a className="btn primary" href="#quote">
-                  Request a Quote <ArrowRight size={18} />
+                  Send a Quote Request <ArrowRight size={18} />
                 </a>
                 <a className="btn" href={`tel:${c.phone.replace(/\s+/g, "")}`}>
                   Call {c.phone}
+                </a>
+                <a className="btn" href={`mailto:${c.email}`}>
+                  Email {c.email}
                 </a>
               </div>
             </div>
@@ -292,16 +324,16 @@ function QuoteForm() {
   const c = useBusinessCopy();
   const [name, setName] = useState("");
   const [suburb, setSuburb] = useState("");
+  const [jobType, setJobType] = useState("Residential repaint");
   const [message, setMessage] = useState("");
 
-  // Simple mailto form (no backend needed)
   const mailto = useMemo(() => {
     const subject = encodeURIComponent(`Quote request - ${name || "New client"} (${suburb || "Suburb"})`);
     const body = encodeURIComponent(
-      `Name: ${name}\nSuburb: ${suburb}\n\nRequest:\n${message}\n\nSent from website form.`
+      `Name: ${name}\nPhone: \nEmail: \nSuburb: ${suburb}\nJob type: ${jobType}\n\nDetails:\n${message}\n\nSent from website form.`
     );
     return `mailto:${c.email}?subject=${subject}&body=${body}`;
-  }, [c.email, name, suburb, message]);
+  }, [c.email, name, suburb, jobType, message]);
 
   return (
     <div style={{ display: "grid", gap: 10 }}>
@@ -319,30 +351,69 @@ function QuoteForm() {
         className="btn"
         style={{ justifyContent: "flex-start" }}
       />
+      <select
+        value={jobType}
+        onChange={(e) => setJobType(e.target.value)}
+        className="btn"
+        style={{ justifyContent: "flex-start" }}
+      >
+        <option>Residential repaint</option>
+        <option>Open home / bond repaint</option>
+        <option>Maintenance repaint</option>
+        <option>Commercial painting</option>
+        <option>Plastering / patching</option>
+        <option>Gyprock sheeting</option>
+        <option>End of lease refresh</option>
+        <option>Roof restoration</option>
+        <option>Fence respray</option>
+        <option>Other</option>
+      </select>
+
       <textarea
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        placeholder="What do you need painted? (rooms, repairs, timing)"
+        placeholder="Describe the job (rooms, repairs, roof type, fence length, timing, photos if any)"
         className="btn"
-        style={{ justifyContent: "flex-start", minHeight: 96, paddingTop: 10 }}
+        style={{ justifyContent: "flex-start", minHeight: 110, paddingTop: 10 }}
       />
+
       <a className="btn primary" href={mailto}>
-        Send Request <ArrowRight size={18} />
+        Email Quote Request <ArrowRight size={18} />
       </a>
 
       <div className="small">
-        Prefer phone? <a href={`tel:${c.phone.replace(/\s+/g, "")}`}>Call {c.phone}</a>
+        Or call <a href={`tel:${c.phone.replace(/\s+/g, "")}`}>{c.phone}</a>
       </div>
     </div>
   );
 }
 
-function ServiceCard({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
+function ServiceCard({
+  icon,
+  title,
+  desc,
+  bullets,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+  bullets: string[];
+}) {
   return (
     <div className="card">
       <div className="iconWrap">{icon}</div>
       <h3>{title}</h3>
       <p>{desc}</p>
+      <div style={{ marginTop: 12 }} className="mini">
+        <p style={{ margin: 0 }}>
+          {bullets.map((b, i) => (
+            <span key={b}>
+              • {b}
+              {i < bullets.length - 1 ? <br /> : null}
+            </span>
+          ))}
+        </p>
+      </div>
     </div>
   );
 }
@@ -369,7 +440,7 @@ function WorkCard({ title, detail }: { title: string; detail: string }) {
       <p>{detail}</p>
       <div style={{ marginTop: 12 }} className="mini">
         <p style={{ margin: 0 }}>
-          Tip: Put photos into <b>public/work/</b> and reference them here later.
+          Add photos later: put images in <b>public/work/</b> then reference them in components.
         </p>
       </div>
     </div>
@@ -407,7 +478,7 @@ function Footer() {
               <span>{c.brand}</span>
             </div>
             <div className="small">
-              Premium finishing work with clean prep, tidy sites, and durable coatings.
+              Painting, plastering, repairs, and restorations — Brisbane and nearby suburbs.
             </div>
           </div>
 
@@ -430,7 +501,7 @@ function Footer() {
                 <MapPin size={16} /> {c.area}
               </span>
               <span className="pill">
-                <Sparkles size={16} /> Free quotes & fast turnaround
+                <Sparkles size={16} /> Free quotes • Fast turnaround
               </span>
             </div>
           </div>
@@ -462,7 +533,7 @@ function NotFound() {
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
