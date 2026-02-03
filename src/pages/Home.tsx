@@ -1,72 +1,114 @@
 export default function Home() {
+  document.title =
+    "Shield Finishing Services | Professional Painting & Plastering";
+
   return (
-    <div className="font-sans text-slate-800">
+    <div className="bg-white text-slate-800">
 
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_left,white,transparent_40%)]"></div>
+      <section className="border-b">
+        <div className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
 
-        <div className="relative max-w-7xl mx-auto px-6 py-32 text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
-            Professional Painting & Plastering
-          </h1>
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Professional Painting & Plastering Services
+            </h1>
 
-          <p className="text-lg md:text-2xl max-w-3xl mx-auto mb-12 text-slate-200">
-            Shield Finishing Services delivers high-quality finishes for
-            residential and commercial properties — clean, reliable, and built to last.
-          </p>
+            <p className="text-lg mb-8 max-w-xl">
+              Shield Finishing Services provides reliable, high-quality
+              painting and plastering for residential and commercial
+              properties. Clean workmanship, clear pricing, and results
+              you can rely on.
+            </p>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="/contact"
-              className="bg-yellow-500 hover:bg-yellow-400 text-slate-900 px-10 py-4 rounded font-bold text-lg transition"
-            >
-              Get a Free Quote
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/contact"
+                className="bg-blue-600 text-white px-8 py-4 font-semibold text-center"
+              >
+                Get a Free Quote
+              </a>
 
-            <a
-              href="/gallery"
-              className="border-2 border-white/80 hover:bg-white hover:text-slate-900 px-10 py-4 rounded font-bold text-lg transition"
-            >
-              View Our Work
-            </a>
+              <a
+                href="tel:07XXXXXXXX"
+                className="border border-slate-300 px-8 py-4 font-semibold text-center"
+              >
+                Call Now
+              </a>
+            </div>
           </div>
+
+          {/* Image Placeholder */}
+          <div className="hidden md:block">
+            <div className="w-full h-80 bg-slate-100 border flex items-center justify-center text-slate-400">
+              Project Image Placeholder
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* SERVICES OVERVIEW */}
-      <section className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-3 gap-12 text-center">
-        <div>
-          <h3 className="text-xl font-bold mb-3">Painting</h3>
-          <p className="text-slate-600">
-            Interior and exterior painting with sharp lines,
-            durable finishes, and attention to detail.
-          </p>
-        </div>
+      {/* SERVICES SUMMARY */}
+      <section>
+        <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-12">
 
-        <div>
-          <h3 className="text-xl font-bold mb-3">Plastering</h3>
-          <p className="text-slate-600">
-            Smooth walls, ceilings, repairs, and new installations
-            finished to a professional standard.
-          </p>
-        </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-3">
+              Residential Painting
+            </h3>
+            <p>
+              Interior and exterior painting for homes, renovations,
+              and new builds.
+            </p>
+          </div>
 
-        <div>
-          <h3 className="text-xl font-bold mb-3">Reliability</h3>
+          <div>
+            <h3 className="text-xl font-semibold mb-3">
+              Commercial Services
+            </h3>
+            <p>
+              Professional finishing solutions for offices, shops,
+              and commercial properties.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-3">
+              Plastering & Repairs
+            </h3>
+            <p>
+              Wall and ceiling repairs, skimming, and plastering
+              finished ready for paint.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* TRUST SECTION */}
+      <section className="bg-slate-50 border-t border-b">
+        <div className="max-w-7xl mx-auto px-6 py-16 text-center">
+          <p className="text-2xl font-semibold mb-2">
+            Reliable • Professional • Fully Insured
+          </p>
           <p className="text-slate-600">
-            Clear quotes, punctual delivery, tidy workspaces,
-            and results you can trust.
+            Serving residential and commercial clients with pride and care
           </p>
         </div>
       </section>
 
-      {/* TRUST BANNER */}
-      <section className="bg-slate-100 py-16">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-2xl font-semibold text-slate-800">
-            Quality Workmanship • Professional Service • Satisfaction Guaranteed
-          </p>
+      {/* CTA */}
+      <section>
+        <div className="max-w-7xl mx-auto px-6 py-20 text-center">
+          <h2 className="text-3xl font-bold mb-6">
+            Get a Free, No-Obligation Quote
+          </h2>
+          <a
+            href="/contact"
+            className="inline-block bg-blue-600 text-white px-10 py-4 font-semibold"
+          >
+            Contact Us Today
+          </a>
         </div>
       </section>
 
